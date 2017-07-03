@@ -207,9 +207,12 @@ public class CalculatorController {
 	public List<Item> findAll() {
 		LOGGER.info("");
 		LOGGER.info("*********** BEGIN FINDALL ************");
-
+		LOGGER.info("++++++++++++++++++++++++ " + calculatorService.findAll());
+		
 		calculator.setItems(calculatorService.findAll());
-		calculator.setItem(calculator.getItems().get(0));
+		if (!calculatorService.findAll().isEmpty()) {
+			 calculator.setItem(calculator.getItems().get(0));
+		}
 		
 		LOGGER.info(calculator.toString());
 		LOGGER.info("*********** END FINDALL ************\n");
