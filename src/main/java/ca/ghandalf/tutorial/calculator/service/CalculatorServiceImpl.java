@@ -16,8 +16,8 @@ public class CalculatorServiceImpl implements CalculatorService {
 	private CalculatorRepository calculatorRepository;
 	
 	@Override
-	public void create(Item calculator) {
-		this.calculatorRepository.save(calculator);
+	public Item create(Item item) {
+		return this.calculatorRepository.save(item);
 	}
 
 	@Override
@@ -26,19 +26,17 @@ public class CalculatorServiceImpl implements CalculatorService {
 	}
 
 	@Override
-	public Item update(Item calculator) {
-		return this.calculatorRepository.saveAndFlush(calculator);
+	public Item update(Item item) {
+		return this.calculatorRepository.saveAndFlush(item);
 	}
 
 	@Override
-	public void delete(Item calculator) {
-		this.calculatorRepository.delete(calculator);
+	public void delete(Item item) {
+		this.calculatorRepository.delete(item);
 	}
 
 	@Override
 	public List<Item> findAll() {
 		return this.calculatorRepository.findAll();
 	}
-
-	
 }

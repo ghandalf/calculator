@@ -9,7 +9,7 @@
   </appender>
   
   <logger name="org.spring" level="INFO"/>
-  <logger name="org.hibernate" level="INFO"/>
+  <logger name="org.hibernate" level="DEBUG"/>
   <logger name="com.fresche" level="DEBUG"/>
   
 
