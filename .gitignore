@@ -1,6 +1,6 @@
 ### Eclipse ###
-.metatdata
-.mvn
+.metatdata/
+.mvn/
 .settings
 doc
 RemoteSystemsTempFiles
