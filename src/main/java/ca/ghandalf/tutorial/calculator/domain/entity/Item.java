@@ -67,12 +67,10 @@ public class Item implements Serializable {
 		this.price = price;
 	}
 
+	@Override
 	public String toString() {
-		return this.getClass().getSimpleName() 
-				+ " [Id: " + this.getId() 
-				+ ", sku: " + this.getSku()
-				+ ", name: " + this.getName()
-				+ ", description: " + this.getDescription()
-				+ ", price: " + this.getPrice() + "]";
+		return "Item [id=" + id + ", sku=" + sku + ", name=" + name + ", description=" + description + ", price="
+				+ price + "]";
 	}
+	
 }

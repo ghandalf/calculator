@@ -35,7 +35,7 @@ public class CalculatorController {
 	private CalculatorService calculatorService;
 	
 	@Inject
-	CalculatorDTO calculator;
+	private CalculatorDTO calculator;
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping("/")
@@ -53,10 +53,8 @@ public class CalculatorController {
 		LOGGER.info("");
 		LOGGER.info("*********** BEGIN CREATE ************");
 		LOGGER.info(item.toString());
-		calculatorService.create(item);
-		
-//		calculator = new CalculatorDTO();
-		calculator.setItem(item);
+
+		calculator.setItem(calculatorService.create(item));
 		calculator.setItems(calculatorService.findAll());
 		LOGGER.info(calculator.toString());
 		LOGGER.info("*********** END CREATE ************\n");
@@ -72,11 +70,7 @@ public class CalculatorController {
 	public CalculatorDTO read(@RequestParam("id") Long id) {
 		LOGGER.info("");
 		LOGGER.info("*********** BEGIN READ ************");
-		Item item = calculatorService.read(id);
-		item.setDescription(item.getDescription() + " read ");
-		LOGGER.info(item.toString());
-		
-		calculator.setItem(calculatorService.update(item));
+		calculator.setItem(calculatorService.read(id));
 		calculator.setItems(calculatorService.findAll());
 		LOGGER.info(calculator.toString());
 		LOGGER.info("*********** END READ ************\n");
@@ -93,8 +87,7 @@ public class CalculatorController {
 		LOGGER.info("");
 		LOGGER.info("*********** BEGIN UPDATE ************");
 		LOGGER.info(item.toString());
-		calculator.setItem(calculatorService.update(item));
-		
+		calculator.setItem(calculatorService.update(item));		
 		calculator.setItems(calculatorService.findAll());
 		LOGGER.info(calculator.toString());
 		LOGGER.info("*********** END UPDATE ************\n");
@@ -112,7 +105,6 @@ public class CalculatorController {
 		LOGGER.info("*********** BEGIN DELETE ************");
 		calculatorService.delete(item);
 		calculator.setItem(null);
-		
 		calculator.setItems(calculatorService.findAll());
 		LOGGER.info(calculator.toString());
 		LOGGER.info("*********** END DELETE ************\n");
@@ -120,6 +112,24 @@ public class CalculatorController {
 		return calculator;
 	}
 
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping("findAll")
+	public List<Item> findAll() {
+		LOGGER.info("");
+		LOGGER.info("*********** BEGIN FINDALL ************");
+		LOGGER.info("++++++++++++++++++++++++ " + calculatorService.findAll());
+		
+		calculator.setItems(calculatorService.findAll());
+		if (!calculatorService.findAll().isEmpty()) {
+			 calculator.setItem(calculator.getItems().get(0));
+		}
+		
+		LOGGER.info(calculator.toString());
+		LOGGER.info("*********** END FINDALL ************\n");
+		
+		return calculatorService.findAll();
+	}
+	
 	// Pass in Body from SOAP: 
 	// Header: ?value=333.00&operationType=plus
 	// 	Body: {"id":233,"sku":23333,"name":"SamsungTV 3 updated","description":"Samsung Smart TV 3 updated","price":333.00}
@@ -202,21 +212,4 @@ public class CalculatorController {
 		return calculator;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping("findAll")
-	public List<Item> findAll() {
-		LOGGER.info("");
-		LOGGER.info("*********** BEGIN FINDALL ************");
-		LOGGER.info("++++++++++++++++++++++++ " + calculatorService.findAll());
-		
-		calculator.setItems(calculatorService.findAll());
-		if (!calculatorService.findAll().isEmpty()) {
-			 calculator.setItem(calculator.getItems().get(0));
-		}
-		
-		LOGGER.info(calculator.toString());
-		LOGGER.info("*********** END FINDALL ************\n");
-		
-		return calculatorService.findAll();
-	}
 }

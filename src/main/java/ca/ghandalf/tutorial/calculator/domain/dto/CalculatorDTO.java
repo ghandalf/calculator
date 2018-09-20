@@ -63,9 +63,11 @@ public class CalculatorDTO implements Serializable {
 	}
 
 	public Operation getOperationType(String operation) {
-		return Operation.PLUS.instance(operation);
+		return Operation.operationType(operation);
 	}
 	
+	// To get use to some new features
+	@Override
 	public String toString() {
 		return this.getClass().getSimpleName() 
 				+ " [" + Objects.toString(this.getItem(), "isNull")

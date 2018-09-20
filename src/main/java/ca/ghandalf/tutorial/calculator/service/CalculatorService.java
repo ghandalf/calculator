@@ -6,13 +6,13 @@ import ca.ghandalf.tutorial.calculator.domain.entity.Item;
 
 public interface CalculatorService {
 
-	public void create(Item calculator);
+	public Item create(Item item);
 
 	public Item read(Long id);
 
-	public Item update(Item calculator);
+	public Item update(Item item);
 
-	public void delete(Item calculator);
+	public void delete(Item item);
 	
 	public List<Item> findAll();
 	
