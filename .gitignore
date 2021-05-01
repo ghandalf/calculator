@@ -1,4 +1,6 @@
-# We are on a parent project avoid the sub project directories
+.history
+**/.history
+
 .DS_Store
 **/.DS_Store
 
@@ -16,6 +18,12 @@
 
 .idea
 **/.idea
+*.iml
+**/*.iml
+*.ipr
+**/.ipr
+*.iws
+**/.iws
 
 .netbeans
 **/.nbproject
