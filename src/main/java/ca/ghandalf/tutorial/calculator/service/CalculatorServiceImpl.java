@@ -1,13 +1,11 @@
 package ca.ghandalf.tutorial.calculator.service;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
-import org.springframework.stereotype.Service;
-
 import ca.ghandalf.tutorial.calculator.domain.entity.Item;
 import ca.ghandalf.tutorial.calculator.repository.CalculatorRepository;
+import org.springframework.stereotype.Service;
+
+import javax.inject.Inject;
+import java.util.List;
 
 @Service
 public class CalculatorServiceImpl implements CalculatorService {

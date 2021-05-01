@@ -1,11 +1,11 @@
 package ca.ghandalf.tutorial.calculator.utils;
 
-import java.util.function.DoubleBinaryOperator;
-
 import javax.ws.rs.Produces;
+import java.util.function.DoubleBinaryOperator;
 
 @Produces
 public enum Operation implements DoubleBinaryOperator {
+
 	PLUS("+", (l, r) -> l + r),
 	MINUS("-", (l, r) -> l - r),
 	MULTIPLY("*", (l, r) -> l * r),
@@ -14,7 +14,7 @@ public enum Operation implements DoubleBinaryOperator {
 	private final String which;
 	private final DoubleBinaryOperator operator;
 
-	private Operation(final String which, final DoubleBinaryOperator operator) {
+	Operation(final String which, final DoubleBinaryOperator operator) {
 		this.which = which;
 		this.operator = operator;
 	}
@@ -29,7 +29,7 @@ public enum Operation implements DoubleBinaryOperator {
 	 * @param operation
 	 * @return
 	 */
-	public static final Operation operationType(String operation) {
+	public static Operation operationType(String operation) {
 		for (Operation currentOperation : Operation.values()) {
 			if (currentOperation.name().equalsIgnoreCase(operation)) {
 				return currentOperation;
@@ -43,7 +43,7 @@ public enum Operation implements DoubleBinaryOperator {
 				"Operation must be [" + operations.substring(0, operations.length() - 2) + "]");
 	}
 
-	public static final Operation getOperator(String which) {
+	public static Operation getOperator(String which) {
 		for (Operation currentOperation : Operation.values()) {
 			if (currentOperation.getWhich().equalsIgnoreCase(which)) {
 				return currentOperation;

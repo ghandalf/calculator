@@ -1,22 +1,15 @@
 package ca.ghandalf.tutorial.calculator.controller;
 
-import java.util.List;
-
-import javax.inject.Inject;
-import javax.validation.Valid;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import ca.ghandalf.tutorial.calculator.domain.dto.CalculatorDTO;
 import ca.ghandalf.tutorial.calculator.domain.entity.Item;
 import ca.ghandalf.tutorial.calculator.service.CalculatorService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.*;
+
+import javax.inject.Inject;
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * By including spring-boot-starter-actuator in the classpath we include in the RequestMapping those

@@ -1,14 +1,13 @@
 package ca.ghandalf.tutorial.calculator.domain.dto;
 
+import ca.ghandalf.tutorial.calculator.domain.entity.Item;
+import ca.ghandalf.tutorial.calculator.utils.Operation;
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-import org.springframework.stereotype.Component;
-
-import ca.ghandalf.tutorial.calculator.domain.entity.Item;
-import ca.ghandalf.tutorial.calculator.utils.Operation;
 
 @Component
 public class CalculatorDTO implements Serializable {
