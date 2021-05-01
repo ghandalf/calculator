@@ -1,17 +1,16 @@
 package ca.ghandalf.tutorial.calculator;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.annotations.Test;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
-public class CalculatorApplicationTests {
+public class CalculatorApplicationTests extends AbstractTestNGSpringContextTests {
 
 	private static final Logger logger = LoggerFactory.getLogger(CalculatorApplicationTests.class);
+
 	@Test
 	public void contextLoads() {
 		logger.info("Context loaded...");

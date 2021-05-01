@@ -1,14 +1,12 @@
 package ca.ghandalf.tutorial.calculator.utils;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-@RunWith(SpringRunner.class)
 @ComponentScan(basePackages = { "ca.ghandalf.tutorial.calculator" })
-public class OperationTest {
+public class OperationTest extends AbstractTestNGSpringContextTests {
 
 	@Test
 	public void getMathSignPlusOperation() {
